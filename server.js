@@ -12,12 +12,12 @@ import messageRoute from "./routes/message.route.js";
 import reviewRoute from "./routes/review.route.js";
 import authRoute from "./routes/auth.route.js";
 
-const BASE_URL = process.env.BASE_URL;
 
 const app = express();
 dotenv.config();
 mongoose.set("strictQuery", true);
 
+const BASE_URL = process.env.port || 8800;
 
 
 const connect = async () => {
@@ -49,5 +49,5 @@ app.use((err, req, res, next) => {
 
 app.listen(BASE_URL, () => {
     connect();
-    console.log(`{backend server is working on ${BASE_URL}}`)
+    console.log(`server is running on  http://localhost:${BASE_URL}`)
 })
