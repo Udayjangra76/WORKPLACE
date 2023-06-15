@@ -5,10 +5,11 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "server": "nodemon server.js",
-    "client":"PORT=5173 &&npm run dev --prefix client", 
-    "dev":"concurretly \"npm start\" \"npm run client\"" 
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=14.20.1"
   },
   "keywords": [],
   "author": "",

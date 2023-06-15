@@ -3,8 +3,6 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import path from "path"
-import { fileURLToPath } from "url";
 
 import userRoute from "./routes/user.route.js";
 import gigRoute from "./routes/gig.route.js";
@@ -14,19 +12,13 @@ import messageRoute from "./routes/message.route.js";
 import reviewRoute from "./routes/review.route.js";
 import authRoute from "./routes/auth.route.js";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const BASE_URL = process.env.BASE_URL;
 
 const app = express();
 dotenv.config();
 mongoose.set("strictQuery", true);
 
-app.use(express.static(path.join(__dirname, "./client/dist")));
-app.get("*", function (req, res) {
-    res.sendFile(path.join(__dirname, "./client/dist/index.html"));
-});
 
-const PORT = 8800 || process.env.PORT;
 
 const connect = async () => {
     try {
@@ -55,7 +47,7 @@ app.use((err, req, res, next) => {
     return res.status(errorStatus).send(errorMessage);
 });
 
-app.listen(PORT, () => {
+app.listen(BASE_URL, () => {
     connect();
-    console.log("backend server is working ")
+    console.log(`{backend server is working on ${BASE_URL}}`)
 })
