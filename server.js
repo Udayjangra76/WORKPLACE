@@ -22,7 +22,7 @@ app.get("*", function (req, res) {
     res.sendFile(path.join(__dirname, "./client/dist/index.html"));
 });
 
-const PORT = 8080 || process.env.PORT;
+const PORT = 8800 || process.env.PORT;
 
 const connect = async () => {
     try {
