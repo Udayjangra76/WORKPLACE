@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
-    "client":"npm run dev --prefix client", 
+    "client":"PORT=5173 &&npm run dev --prefix client", 
     "dev":"concurretly \"npm start\" \"npm run client\"" 
   },
   "keywords": [],

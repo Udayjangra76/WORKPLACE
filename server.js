@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import path from "path"
+import { fileURLToPath } from "url";
 
 import userRoute from "./routes/user.route.js";
 import gigRoute from "./routes/gig.route.js";
@@ -12,6 +13,9 @@ import conversationRoute from "./routes/conversation.route.js";
 import messageRoute from "./routes/message.route.js";
 import reviewRoute from "./routes/review.route.js";
 import authRoute from "./routes/auth.route.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 dotenv.config();
@@ -22,7 +26,7 @@ app.get("*", function (req, res) {
     res.sendFile(path.join(__dirname, "./client/dist/index.html"));
 });
 
-const PORT = 8080 || process.env.PORT;
+const PORT = 8800 || process.env.PORT;
 
 const connect = async () => {
     try {
