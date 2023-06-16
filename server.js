@@ -28,7 +28,8 @@ const connect = async () => {
         console.log(error)
     }
 }
-app.use(cors({ origin: "https://workplacee.netlify.app/", credentials: true }));
+app.use(cors({ origin: "https://workplacee.netlify.app", credentials: true }));
+
 app.use(express.json());
 app.use(cookieParser());
 
