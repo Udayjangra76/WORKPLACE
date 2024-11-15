@@ -47,6 +47,9 @@ app.use((err, req, res, next) => {
     return res.status(errorStatus).send(errorMessage);
 });
 
+app.get("/", (req, res) => {
+    res.send("Hello");
+});
 
 app.listen(BASE_URL, () => {
     connect();
